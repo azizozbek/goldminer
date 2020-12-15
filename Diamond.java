@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Diamond here.
+ * A valuable diamond that has a high value
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @AZO & @LUM 
+ * @v.1
  */
-public class Diamond extends Object
+public class Diamond extends Objekt
 {
     /**
      * Act - do whatever the Diamond wants to do. This method is called whenever

@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Hook here.
+ * Hook that swings around and catches objects to bring to the Miner
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @AZO & @LUM 
+ * @v.1
  */
 public class Hook extends Actor
 {

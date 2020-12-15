@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Miner here.
+ * A Miner that swings his hook to collect valuable objects
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @AZO & @LUM
+ * @v.1
  */
 public class Miner extends Actor
 {

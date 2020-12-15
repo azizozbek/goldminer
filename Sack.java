@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Sack here.
+ * A sack that contains mysterious objects
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @AZO & @LUM 
+ * @v.1
  */
-public class Sack extends Object
+public class Sack extends Objekt
 {
     /**
      * Act - do whatever the Sack wants to do. This method is called whenever

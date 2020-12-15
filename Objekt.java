@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Object here.
+ * Organisatory Class for Objects
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @AZO & @LUM 
+ * @v.1
  */
-public class Object extends Actor
+public class Objekt extends Actor
 {
     /**
      * Act - do whatever the Object wants to do. This method is called whenever
