@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Dynamite
+comment0.text=\r\n\ Dynamite\ to\ explode\ an\ object.\r\n\ \r\n\ @AZO\ &\ @LUM\r\n\ @v.1\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Dynamite\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=2
