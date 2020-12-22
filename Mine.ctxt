@@ -4,4 +4,6 @@ comment0.text=\r\n\ The\ Goldmine\ where\ the\ objects\ show\ up.\r\n\ \r\n\ @AZ
 comment1.params=
 comment1.target=Mine()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyWorld.\r\n\ \r\n
-numComments=2
+comment2.params=gold
+comment2.target=void\ addActorAtRandomLocation(Gold)
+numComments=3

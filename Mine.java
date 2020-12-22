@@ -15,7 +15,33 @@ public class Mine extends World
      */
     public Mine()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        /* Create a new world with 800x600 cells with a cell size of 1x1 pixels.
+        * with the false parameter make the world unbounded.
+        */
+        super(800, 600, 1,false);
+        
+        //add the miner
+        Miner miner = new Miner();
+        addObject(miner, getWidth()/2, 40);
+        
+        //create the hook
+        Hook hook = new Hook();
+        addObject(hook, getWidth()/2, 100);
+
+       
+        //create random Golds
+        for (int i=0; i<10; i++)
+        {
+            addActorAtRandomLocation(new Gold());
+        }
+           
+        
+    }
+    
+    private void addActorAtRandomLocation(Gold gold)
+    {
+        int x = Greenfoot.getRandomNumber(getWidth()-50);
+        int y = Greenfoot.getRandomNumber(300);
+        addObject(gold, x, 200+y);
     }
 }

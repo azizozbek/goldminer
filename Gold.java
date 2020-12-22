@@ -8,12 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Gold extends Objekt
 {
-    /**
-     * Act - do whatever the Gold wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int piece = 0;
+    
+    public Gold(){
+        int randNr = Greenfoot.getRandomNumber(50);
+        
+        this.VALUE = randNr;
+        
+        GreenfootImage image = getImage();
+        image.scale(10+randNr,10+randNr);
+        setImage(image);
+    }
+    
     public void act() 
     {
-        // Add your action code here.
+                
     }    
 }

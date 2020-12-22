@@ -14,6 +14,8 @@ public class Miner extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+       
+        //Hook
+        
     }    
 }

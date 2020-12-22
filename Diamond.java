@@ -8,10 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Diamond extends Objekt
 {
-    /**
-     * Act - do whatever the Diamond wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Diamond(){        
+        this.VALUE=50;
+    }
     public void act() 
     {
         // Add your action code here.
