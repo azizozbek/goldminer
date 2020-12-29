@@ -14,9 +14,7 @@ public class Hook extends Actor
     private boolean catchObject = false;
     private int leftTurn = 100;
     private int rightTurn = 700;
-    int Ytarget = 1;
-    private Actor gold;
-    
+    int Ytarget = 1;    
     
     public Hook()
     {
@@ -41,15 +39,14 @@ public class Hook extends Actor
             }
         }
              
-        
-        if(Greenfoot.isKeyDown("down")){
+        if (Greenfoot.isKeyDown("down"))
+        {
             stopHook = true;
             catchObject = true;
         }
         
         if(catchObject)
         {
-            
             getWorld().getBackground().setColor(Color.BLACK);
             //getWorld().getBackground().drawLine(getX(), getY(), getX(), getY() + Ytarget);
             
@@ -64,14 +61,39 @@ public class Hook extends Actor
             Actor actor = getOneIntersectingObject(Gold.class);
             if (actor != null) {
                 
-                Ytarget--;
+                Ytarget = 0;
+                int goldW = Gold.worth;
+                
+                if(Gold.worth == 1 || Gold.worth == 2){
+                    Ytarget = Ytarget - 4;
+                }else if (Gold.worth == 3 || Gold.worth == 4){
+                    Ytarget = Ytarget - 2;
+                }else {
+                    Ytarget--;
+                }
+                
                 actor.setRotation(90);
                 actor.move(Ytarget);
                 getImage().setTransparency(0);
+           
             }
             
              if(getY() <= 100){
                 Ytarget = 0;
+                                
+                if(actor != null){
+                    Mine mine = (Mine) getWorld();
+                    Counter counter = mine.getCounter();                   
+                    counter.addScore(Gold.worth);
+                }
+                
+                getImage().setTransparency(255);
+                stopHook = false;
+                Mine mine=(Mine)this.getWorld();
+                mine.removeObject(actor);
+                
+                catchObject = false;
+                Ytarget = 1;
             }
             
             
