@@ -8,12 +8,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dynamite extends Actor
 {
-    /**
-     * Act - do whatever the Dynamite wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public static boolean addDynamite;
+    private int count;
     public void act() 
     {
-        // Add your action code here.
+       if(addDynamite){
+           addDynamite();
+           addDynamite = false;
+       }
+       
+       for (int i=0; i<10; i++)
+       {
+           Mine mine = (Mine)getWorld();
+           mine.addObject(this, 65, 40);
+       }
     }    
+    
+    public void addDynamite(){
+    
+        count++;
+        
+    }
 }

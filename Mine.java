@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Mine extends World
 {
-    private Counter theCounter;
+    Counter counter = new Counter();
 
     /**
      * Constructor for objects of class MyWorld.
@@ -25,8 +25,8 @@ public class Mine extends World
         Miner miner = new Miner();
         addObject(miner, getWidth()/2, 40);
         
-        Counter theCounter = new Counter();
-        addObject(theCounter,57,40);
+        addObject(counter,57,40);
+        getCounter();
         
         //create random Golds
         for (int i=0; i<10; i++)
@@ -34,19 +34,34 @@ public class Mine extends World
             addActorAtRandomLocation(new Gold());
         }
         
+        //create random Diamonds
+        for (int i=0; i<Greenfoot.getRandomNumber(2)+1; i++)
+        {
+            addActorAtRandomLocation(new Diamond());
+        }
+        
+        //create random Diamonds
+        for (int i=0; i<Greenfoot.getRandomNumber(2)+1; i++)
+        {
+            addActorAtRandomLocation(new Stone());
+        }
+        
+        //create a Sack
+        addActorAtRandomLocation(new Sack());
+        
         //create the hook
         Hook hook = new Hook();
         addObject(hook, getWidth()/2, 100);
     }
     
     public Counter getCounter(){
-        return theCounter;
+        return counter;
     }
     
-    private void addActorAtRandomLocation(Gold gold)
+    private void addActorAtRandomLocation(Actor actor)
     {
         int x = Greenfoot.getRandomNumber(getWidth()-100);
         int y = Greenfoot.getRandomNumber(300);
-        addObject(gold, 50+x, 200+y);
+        addObject(actor, 50+x, 200+y);
     }
 }

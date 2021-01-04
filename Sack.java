@@ -8,12 +8,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sack extends Objekt
 {
-    /**
-     * Act - do whatever the Sack wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int randNr = Greenfoot.getRandomNumber(30);
+    protected static int suprise;
+    
+    public Sack(){
+        GreenfootImage image = getImage();        
+        image.scale(5+randNr,12+randNr);
+        setImage(image);
+        
+        String[] suprises = {"gold","diamond","stone", "dynamite"};
+        this.suprise = 3;//Greenfoot.getRandomNumber(suprises.length);
+    }
+    
     public void act() 
     {
-        // Add your action code here.
+        Actor hook;
+        hook = getOneIntersectingObject(Hook.class);
+        if (hook != null){
+            setImage("sack_hook.png");
+            GreenfootImage image = getImage();      
+            image.scale(5+randNr,12+randNr);
+            image.rotate(-90);
+            setImage(image);
+        }
+        
+
+        
     }    
 }

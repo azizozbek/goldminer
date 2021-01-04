@@ -2,6 +2,7 @@
 comment0.target=Sack
 comment0.text=\r\n\ A\ sack\ that\ contains\ mysterious\ objects\r\n\ \r\n\ @AZO\ &\ @LUM\ \r\n\ @v.1\r\n
 comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Sack\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment1.target=Sack()
+comment2.params=
+comment2.target=void\ act()
+numComments=3

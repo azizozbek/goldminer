@@ -8,12 +8,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Stone extends Objekt
 {
-    /**
-     * Act - do whatever the Stone wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int randNr = Greenfoot.getRandomNumber(10);
+
+    public Stone(){
+        GreenfootImage image = getImage();        
+        image.scale(30+randNr,30+randNr);
+        setImage(image);
+    }
+    
     public void act() 
     {
-        // Add your action code here.
-    }    
+        Actor hook;
+        hook = getOneIntersectingObject(Hook.class);
+        if (hook != null){
+            setImage("stone_hook.png");
+            GreenfootImage image = getImage();        
+            image.scale(30+randNr,30+randNr);
+            image.rotate(-90);
+            setImage(image);
+        }
+    }
+
 }

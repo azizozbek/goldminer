@@ -8,17 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Objekt extends Actor
 {
-    //Value of stones
-    protected int VALUE = 0;
-    
-    public void act() 
+
+    //Avoid overlapping random other objects
+    protected void addedToWorld(World world)
     {
-        Gold gold = new Gold();
+        while (isTouching(Gold.class))
+        {
+            move(Greenfoot.getRandomNumber(20));
+        }
         
-        /*
-           private GifImage g = new GifImage("eagle.gif");
-           this.setImage(g.getCurrentImage());
-        setLocation(getX()-eagleSpeed, getY());
-           */
-    }    
+        while (isTouching(Diamond.class))
+        {
+            move(Greenfoot.getRandomNumber(20));
+        }
+        
+        while (isTouching(Stone.class))
+        {
+            move(Greenfoot.getRandomNumber(20));
+        }
+    }
 }

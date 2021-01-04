@@ -8,11 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Diamond extends Objekt
 {
+    private int randNr = Greenfoot.getRandomNumber(50);
+
     public Diamond(){        
-        this.VALUE=50;
+        
     }
     public void act() 
     {
-        // Add your action code here.
-    }    
+        Actor hook;
+        hook = getOneIntersectingObject(Hook.class);
+        if (hook != null){
+            setImage("diamond_hook.png");
+            GreenfootImage image = getImage();        
+            image.rotate(-90);
+            setImage(image);
+        }
+    }
+
 }
