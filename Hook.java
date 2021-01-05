@@ -13,7 +13,7 @@ public class Hook extends Actor
 {
     private int hookBasePositionY;
     private int hookSpeed = 3;
-    private boolean stopHook = false;
+    public boolean stopHook = false;
     private boolean catchObject = false;
     private int leftTurn = 100;
     private int rightTurn = 700;
@@ -56,7 +56,7 @@ public class Hook extends Actor
         if(catchObject)
         {
             getWorld().getBackground().setColor(Color.BLACK);
-            getWorld().getBackground().drawLine(getX(), getY(), getX(), getY() + Ytarget);
+            //getWorld().getBackground().drawLine(getX(), getY(), getX(), getY() + Ytarget);
             
             move(Ytarget);
                 

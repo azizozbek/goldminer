@@ -4,4 +4,6 @@ comment0.text=\r\n\ A\ Miner\ that\ swings\ his\ hook\ to\ collect\ valuable\ ob
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Miner\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment2.params=
+comment2.target=boolean\ atTurningPoint()
+numComments=3
