@@ -56,7 +56,7 @@ public class Hook extends Actor
         if(catchObject)
         {
             getWorld().getBackground().setColor(Color.BLACK);
-            //getWorld().getBackground().drawLine(getX(), getY(), getX(), getY() + Ytarget);
+            getWorld().getBackground().drawLine(getX(), getY(), getX(), getY() + Ytarget);
             
             move(Ytarget);
                 
@@ -147,6 +147,7 @@ public class Hook extends Actor
                          mine.getCounter().addScore(1);
                          case 3:
                          Dynamite dynamite = new Dynamite();
+                         mine.addObject(dynamite, 150, 40);
                          dynamite.addDynamite();
                           
                      }

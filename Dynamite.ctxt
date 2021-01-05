@@ -2,7 +2,9 @@
 comment0.target=Dynamite
 comment0.text=\r\n\ Dynamite\ to\ explode\ an\ object.\r\n\ \r\n\ @AZO\ &\ @LUM\r\n\ @v.1\r\n
 comment1.params=
-comment1.target=void\ act()
+comment1.target=Dynamite()
 comment2.params=
-comment2.target=void\ addDynamite()
-numComments=3
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ addDynamite()
+numComments=4

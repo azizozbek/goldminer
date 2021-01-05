@@ -10,6 +10,13 @@ public class Dynamite extends Actor
 {
     public static boolean addDynamite;
     private int count;
+    
+    public Dynamite(){
+        GreenfootImage image = getImage();        
+        image.scale(20,34);
+        setImage(image);
+    }
+    
     public void act() 
     {
        if(addDynamite){

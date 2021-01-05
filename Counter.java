@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Counter extends Actor
 {
-    int score = 0;
+    private int score = 0;
 
     /**
      * Act - do whatever the Counter wants to do. This method is called whenever
