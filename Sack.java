@@ -16,7 +16,7 @@ public class Sack extends Objekt
         setImage(image);
         
         String[] suprises = {"gold","diamond","stone", "dynamite"};
-        this.suprise = 3;//Greenfoot.getRandomNumber(suprises.length);
+        this.suprise = Greenfoot.getRandomNumber(suprises.length);
     }
     
     public void act() 

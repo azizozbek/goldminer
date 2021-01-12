@@ -49,9 +49,15 @@ public class Mine extends World
         //create a Sack
         addActorAtRandomLocation(new Sack());
         
+         //create rope
+        Rope rope = new Rope();
+        addObject(rope, 0,0);
+        
         //create the hook
-        Hook hook = new Hook();
+        Hook hook = new Hook(rope);
         addObject(hook, getWidth()/2, 100);
+        
+       
     }
     
     public Counter getCounter(){

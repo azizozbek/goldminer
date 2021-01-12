@@ -19,8 +19,11 @@ public class Hook extends Actor
     private int rightTurn = 700;
     int Ytarget = 1; 
     private int value;
-        
-    public Hook()
+    private Rope rope;
+    private Mine mine;
+    private GreenfootImage line;
+    
+    public Hook(Rope r)
     {
         //make the image double big, so its anchor points is on top
         GreenfootImage base = getImage();
@@ -28,16 +31,12 @@ public class Hook extends Actor
         image.drawImage(base, 0, base.getHeight());
         setImage(image);
         image.rotate(-90);
-        setRotation(90);  
-
-        
+        setRotation(90);
     }
     
     public void act() 
-    {   
-            
-        Mine mine = (Mine) getWorld();
-        
+    { 
+        this.mine = (Mine) getWorld();
         hookBasePositionY = getY();
         
         if(!stopHook){
@@ -52,12 +51,10 @@ public class Hook extends Actor
             stopHook = true;
             catchObject = true;
         }
-        
+
         if(catchObject)
         {
-            getWorld().getBackground().setColor(Color.BLACK);
-            getWorld().getBackground().drawLine(getX(), getY(), getX(), getY() + Ytarget);
-            
+            drawRope(getX(), getY(), getX(), getY() + Ytarget);
             move(Ytarget);
                 
             if(getY() >= 350){
@@ -68,8 +65,9 @@ public class Hook extends Actor
               
             Gold gold = (Gold) getOneIntersectingObject(Gold.class);
             if (gold != null) {
-                              
+                int currentY = getY();             
                 Ytarget = 0;
+                eraseRope();                
                 int goldSize = gold.getImage().getWidth();
 
                 if(goldSize >= 50 ){
@@ -88,6 +86,8 @@ public class Hook extends Actor
                 
                 gold.setRotation(90);
                 gold.move(Ytarget);
+                drawRope(getX(), getY(), getX(), currentY--);
+
                 getImage().setTransparency(0);
             }
             
@@ -120,6 +120,7 @@ public class Hook extends Actor
             
              if(getY() <= 100){
                 Ytarget = 0;
+                eraseRope();
                                 
                 if(gold != null){
                      mine.getCounter().addScore(value);
@@ -172,9 +173,19 @@ public class Hook extends Actor
     
     public boolean atTurningPoint()
     {
-        
         return (getX() <= leftTurn || getX() >= rightTurn);
     }
       
+    public void drawRope(int x1, int y1, int x2, int y2)
+    {        
+        this.line = mine.getBackground();
+        this.line.setColor(new Color(10,255,20));
+        this.line.drawLine(x1, y1, x2, y2);
+        mine.setBackground(this.line);
+    }
+    
+    public void eraseRope(){
+        this.mine.setBackground("bg.png");
+    }
      
 }
