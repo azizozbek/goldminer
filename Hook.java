@@ -65,7 +65,6 @@ public class Hook extends Actor
               
             Gold gold = (Gold) getOneIntersectingObject(Gold.class);
             if (gold != null) {
-                int currentY = getY();             
                 Ytarget = 0;
                 eraseRope();                
                 int goldSize = gold.getImage().getWidth();
@@ -86,7 +85,7 @@ public class Hook extends Actor
                 
                 gold.setRotation(90);
                 gold.move(Ytarget);
-                drawRope(getX(), getY(), getX(), currentY--);
+                drawRope(getX(), getY(), getX(), 100);
 
                 getImage().setTransparency(0);
             }
