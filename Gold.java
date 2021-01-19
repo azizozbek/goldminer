@@ -29,6 +29,23 @@ public class Gold extends Objekt
             image.rotate(-90);
             setImage(image);
         }          
+
+    }
+    
+    public void blowObject(){
+            setImage("explosion.gif");
+            GreenfootImage image = getImage();        
+            image.scale(10+randNr,10+randNr);
+            image.rotate(-90);
+            setImage(image);
+    }
+    
+    public void setGoldImage(){
+            setImage("gold_hook.png");
+            GreenfootImage image = getImage();        
+            image.scale(10+randNr,10+randNr);
+            image.rotate(-90);
+            setImage(image);
     }
 
 }

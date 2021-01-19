@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Hook
 comment0.text=\r\n\ Hook\ that\ swings\ around\ and\ catches\ objects\ to\ bring\ to\ the\ Miner\r\n\ \r\n\ @AZO\ &\ @LUM\ \r\n\ @v.1\r\n
-comment1.params=r
-comment1.target=Hook(Rope)
+comment1.params=d
+comment1.target=Hook(Dynamite)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=object

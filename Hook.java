@@ -15,15 +15,14 @@ public class Hook extends Actor
     private int hookSpeed = 3;
     private boolean stopHook = false;
     private boolean catchObject = false;
-    private int leftTurn = 100;
-    private int rightTurn = 700;
     int Ytarget = 1; 
     private int value;
-    private Rope rope;
     private Mine mine;
     private GreenfootImage line;
+    private Dynamite dynamite = new Dynamite();
+    private boolean blowObject = false;
     
-    public Hook(Rope r)
+    public Hook(Dynamite d)
     {
         //make the image double big, so its anchor points is on top
         GreenfootImage base = getImage();
@@ -32,13 +31,15 @@ public class Hook extends Actor
         setImage(image);
         image.rotate(-90);
         setRotation(90);
+        
+        dynamite = d;
     }
     
     public void act() 
     { 
         this.mine = (Mine) getWorld();
         hookBasePositionY = getY();
-        
+
         if(!stopHook){
             setLocation (getX() + hookSpeed, getY());
             if (atTurningPoint()) {
@@ -52,12 +53,23 @@ public class Hook extends Actor
             catchObject = true;
         }
 
+
         if(catchObject)
         {
+            if (Greenfoot.isKeyDown("up"))
+            {
+               if(dynamite.getDynamite() >= 0){
+                   this.blowObject = true;
+                   dynamite.deleteDynamite();
+                   mine.removeObject(dynamite);
+               } 
+            }
             drawRope(getX(), getY(), getX(), getY() + Ytarget);
             move(Ytarget);
                 
             if(getY() >= 350){
+                eraseRope();
+                drawRope(getX(), getY(), getX(), 100);
                 Ytarget--;
             }else{
                 Ytarget++;
@@ -86,34 +98,49 @@ public class Hook extends Actor
                 gold.setRotation(90);
                 gold.move(Ytarget);
                 drawRope(getX(), getY(), getX(), 100);
-
+                
+                if(blowObject){
+                   Ytarget = 0;
+                   eraseRope();
+                   mine.removeObject(gold);
+                   getImage().setTransparency(1);
+                   drawRope(getX(), getY(), getX(), 100);
+                   blowObject = false;
+                }
+                
                 getImage().setTransparency(0);
             }
             
             Diamond diamond = (Diamond) getOneIntersectingObject(Diamond.class);
             if (diamond != null) {           
                 Ytarget = 0;
+                eraseRope();
                 Ytarget = Ytarget - 5;
                 diamond.setRotation(90);
                 diamond.move(Ytarget);
+                drawRope(getX(), getY(), getX(), 100);
                 getImage().setTransparency(0);
             }
             
             Stone stone = (Stone) getOneIntersectingObject(Stone.class);
             if (stone != null) {          
                 Ytarget = 0;
+                eraseRope();
                 Ytarget--;
                 stone.setRotation(90);
                 stone.move(Ytarget);
+                drawRope(getX(), getY(), getX(), 100);
                 getImage().setTransparency(0);
             }
             
             Sack sack = (Sack) getOneIntersectingObject(Sack.class);
             if (sack != null) {          
                 Ytarget = 0;
+                eraseRope();
                 Ytarget = Ytarget - 2;
                 sack.setRotation(90);
                 sack.move(Ytarget);
+                drawRope(getX(), getY(), getX(), 100);
                 getImage().setTransparency(0);
             }
             
@@ -146,7 +173,6 @@ public class Hook extends Actor
                          case 2:
                          mine.getCounter().addScore(1);
                          case 3:
-                         Dynamite dynamite = new Dynamite();
                          mine.addObject(dynamite, 150, 40);
                          dynamite.addDynamite();
                           
@@ -172,13 +198,13 @@ public class Hook extends Actor
     
     public boolean atTurningPoint()
     {
-        return (getX() <= leftTurn || getX() >= rightTurn);
+        return (getX() <= 50 || getX() >= 750);
     }
       
     public void drawRope(int x1, int y1, int x2, int y2)
     {        
         this.line = mine.getBackground();
-        this.line.setColor(new Color(10,255,20));
+        this.line.setColor(new Color(0,0,0));
         this.line.drawLine(x1, y1, x2, y2);
         mine.setBackground(this.line);
     }

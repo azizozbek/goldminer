@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Objekt extends Actor
 {
-
+    protected boolean useDynamite = false;
     //Avoid overlapping random other objects
     protected void addedToWorld(World world)
     {

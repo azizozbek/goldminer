@@ -50,11 +50,10 @@ public class Mine extends World
         addActorAtRandomLocation(new Sack());
         
          //create rope
-        Rope rope = new Rope();
-        addObject(rope, 0,0);
+        Dynamite dynamite = new Dynamite();
         
         //create the hook
-        Hook hook = new Hook(rope);
+        Hook hook = new Hook(dynamite);
         addObject(hook, getWidth()/2, 100);
         
        

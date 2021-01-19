@@ -32,8 +32,16 @@ public class Dynamite extends Actor
     }    
     
     public void addDynamite(){
+        count++; 
+    }
     
-        count++;
+    public int getDynamite(){
+        return count;
+    }
+    
+    public void deleteDynamite(){
+    
+        count--;
         
     }
 }
