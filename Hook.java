@@ -64,7 +64,7 @@ public class Hook extends Actor
             if (Greenfoot.isKeyDown("up"))
             {
                //if there is a dynamite, use it
-               if(dynamite.getDynamite() >= 0){
+               if(dynamite.getDynamite() >= 1){
                    this.blowObject = true;
                    miner.blowObject = true;
                    dynamite.deleteDynamite();
@@ -107,7 +107,6 @@ public class Hook extends Actor
                    Ytarget = Ytarget - 4;
                    value = 1;
                 }
-
                 gold.setRotation(90);
                 gold.move(Ytarget);
                 drawRope(getX(), getY(), getX(), 100);
@@ -134,7 +133,6 @@ public class Hook extends Actor
                 
                 if(blowObject){
                    diamond.blowObject();
-                   value = 0;
                    getImage().setTransparency(100);
                 }
             }
@@ -151,7 +149,6 @@ public class Hook extends Actor
                 
                 if(blowObject){
                    stone.blowObject();
-                   value = 0;
                    getImage().setTransparency(100);
                 }
             }
@@ -168,7 +165,6 @@ public class Hook extends Actor
                 
                 if(blowObject){
                    sack.blowObject();
-                   value = 0;
                    getImage().setTransparency(100);
                 }
             }
