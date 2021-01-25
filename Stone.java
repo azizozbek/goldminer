@@ -20,13 +20,19 @@ public class Stone extends Objekt
     {
         Actor hook;
         hook = getOneIntersectingObject(Hook.class);
-        if (hook != null){
+        if (hook != null && gifCounter < 2){
             setImage("stone_hook.png");
             GreenfootImage image = getImage();        
             image.scale(30+randNr,30+randNr);
             image.rotate(-90);
             setImage(image);
         }
+    }
+       
+    //Change the image when its blowed (used by external class
+    public void blowObject(){
+        this.setImage(this.explosion.getCurrentImage());
+        this.gifCounter++;
     }
 
 }

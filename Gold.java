@@ -9,9 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Gold extends Objekt
 {
     private int randNr = Greenfoot.getRandomNumber(50);
-
+    
     public Gold(){
-               
+        
         GreenfootImage image = getImage();        
         image.scale(10+randNr,10+randNr);
         setImage(image);
@@ -19,10 +19,10 @@ public class Gold extends Objekt
     }
     
     public void act() 
-    {       
+    {
         Actor hook;
         hook = getOneIntersectingObject(Hook.class);
-        if (hook != null){
+        if (hook != null && gifCounter < 2){
             setImage("gold_hook.png");
             GreenfootImage image = getImage();        
             image.scale(10+randNr,10+randNr);
@@ -31,21 +31,10 @@ public class Gold extends Objekt
         }          
 
     }
-    
+    //Change the image when its blowed (used by external class)
     public void blowObject(){
-            setImage("explosion.gif");
-            GreenfootImage image = getImage();        
-            image.scale(10+randNr,10+randNr);
-            image.rotate(-90);
-            setImage(image);
-    }
-    
-    public void setGoldImage(){
-            setImage("gold_hook.png");
-            GreenfootImage image = getImage();        
-            image.scale(10+randNr,10+randNr);
-            image.rotate(-90);
-            setImage(image);
+        this.setImage(this.explosion.getCurrentImage());
+        this.gifCounter++;
     }
 
 }

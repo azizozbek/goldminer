@@ -1,16 +1,20 @@
 #BlueJ class context
 comment0.target=Hook
 comment0.text=\r\n\ Hook\ that\ swings\ around\ and\ catches\ objects\ to\ bring\ to\ the\ Miner\r\n\ \r\n\ @AZO\ &\ @LUM\ \r\n\ @v.1\r\n
-comment1.params=d
-comment1.target=Hook(Dynamite)
+comment1.params=d\ m
+comment1.target=Hook(Dynamite,\ Miner)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=object
 comment3.target=boolean\ isObjectInRange(java.lang.Class)
+comment3.text=\r\n\ Checks\ if\ there\ is\ a\ object\ in\ near\r\n\ \ \ \ \ \ \ Class\ object\ \=\ the\ object\ to\ check\r\n
 comment4.params=
 comment4.target=boolean\ atTurningPoint()
+comment4.text=\r\n\ \ \ \ \ \ \ Define\ the\ turning\ point\ for\ the\ hook\r\n
 comment5.params=x1\ y1\ x2\ y2
 comment5.target=void\ drawRope(int,\ int,\ int,\ int)
+comment5.text=\r\n\ \ \ \ \ \ \ Draw\ a\ Rope\ for\ the\ hook\r\n\ \ \ \ \ \ \ int\ x1\ \=\ the\ first\ point's\ x\ coordinate.\r\n\ \ \ \ \ \ \ int\ y1\ \=\ the\ first\ point's\ y\ coordinate.\r\n\ \ \ \ \ \ \ int\ x2\ \=\ the\ second\ point's\ x\ coordinate.\r\n\ \ \ \ \ \ \ int\ y2\ \=\ the\ second\ point's\ y\ coordinate.\r\n
 comment6.params=
 comment6.target=void\ eraseRope()
+comment6.text=\r\n\ \ \ \ \ \ \ Erase\ the\ drawn\ Rope\r\n
 numComments=7

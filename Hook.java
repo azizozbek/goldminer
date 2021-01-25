@@ -20,9 +20,10 @@ public class Hook extends Actor
     private Mine mine;
     private GreenfootImage line;
     private Dynamite dynamite = new Dynamite();
+    private Miner miner;
     private boolean blowObject = false;
     
-    public Hook(Dynamite d)
+    public Hook(Dynamite d, Miner m)
     {
         //make the image double big, so its anchor points is on top
         GreenfootImage base = getImage();
@@ -31,7 +32,7 @@ public class Hook extends Actor
         setImage(image);
         image.rotate(-90);
         setRotation(90);
-        
+        miner = m;
         dynamite = d;
     }
     
@@ -40,33 +41,43 @@ public class Hook extends Actor
         this.mine = (Mine) getWorld();
         hookBasePositionY = getY();
 
+        //Move the hook left to right until key pressed
         if(!stopHook){
             setLocation (getX() + hookSpeed, getY());
             if (atTurningPoint()) {
                 hookSpeed = -hookSpeed;
             }
         }
-             
+        
+        //check if down key pressed
         if (Greenfoot.isKeyDown("down"))
         {
             stopHook = true;
             catchObject = true;
+            miner.pullObject = true;
         }
 
 
         if(catchObject)
         {
+            //check if up key pressed
             if (Greenfoot.isKeyDown("up"))
             {
+               //if there is a dynamite, use it
                if(dynamite.getDynamite() >= 0){
                    this.blowObject = true;
+                   miner.blowObject = true;
                    dynamite.deleteDynamite();
                    mine.removeObject(dynamite);
                } 
             }
+            //draw a Rope to Target
             drawRope(getX(), getY(), getX(), getY() + Ytarget);
+            
+            //move the Hook to the target
             move(Ytarget);
                 
+            //end of hook reachable area
             if(getY() >= 350){
                 eraseRope();
                 drawRope(getX(), getY(), getX(), 100);
@@ -75,12 +86,14 @@ public class Hook extends Actor
                 Ytarget++;
             }
               
+            //check if a gold catched
             Gold gold = (Gold) getOneIntersectingObject(Gold.class);
             if (gold != null) {
                 Ytarget = 0;
                 eraseRope();                
                 int goldSize = gold.getImage().getWidth();
-
+                
+                //the size of gold matters to calculate its worth
                 if(goldSize >= 50 ){
                      Ytarget--;
                      value = 5;
@@ -94,21 +107,19 @@ public class Hook extends Actor
                    Ytarget = Ytarget - 4;
                    value = 1;
                 }
-                
+
                 gold.setRotation(90);
                 gold.move(Ytarget);
                 drawRope(getX(), getY(), getX(), 100);
-                
-                if(blowObject){
-                   Ytarget = 0;
-                   eraseRope();
-                   mine.removeObject(gold);
-                   getImage().setTransparency(1);
-                   drawRope(getX(), getY(), getX(), 100);
-                   blowObject = false;
-                }
-                
                 getImage().setTransparency(0);
+                
+                //if up key pressed, the object will be blowed
+                if(blowObject){
+                   gold.blowObject();
+                   value = 0;
+                   getImage().setTransparency(100);
+                }
+
             }
             
             Diamond diamond = (Diamond) getOneIntersectingObject(Diamond.class);
@@ -120,6 +131,12 @@ public class Hook extends Actor
                 diamond.move(Ytarget);
                 drawRope(getX(), getY(), getX(), 100);
                 getImage().setTransparency(0);
+                
+                if(blowObject){
+                   diamond.blowObject();
+                   value = 0;
+                   getImage().setTransparency(100);
+                }
             }
             
             Stone stone = (Stone) getOneIntersectingObject(Stone.class);
@@ -131,6 +148,12 @@ public class Hook extends Actor
                 stone.move(Ytarget);
                 drawRope(getX(), getY(), getX(), 100);
                 getImage().setTransparency(0);
+                
+                if(blowObject){
+                   stone.blowObject();
+                   value = 0;
+                   getImage().setTransparency(100);
+                }
             }
             
             Sack sack = (Sack) getOneIntersectingObject(Sack.class);
@@ -142,11 +165,21 @@ public class Hook extends Actor
                 sack.move(Ytarget);
                 drawRope(getX(), getY(), getX(), 100);
                 getImage().setTransparency(0);
+                
+                if(blowObject){
+                   sack.blowObject();
+                   value = 0;
+                   getImage().setTransparency(100);
+                }
             }
             
+            // when the hook reaches the top value will summed
              if(getY() <= 100){
                 Ytarget = 0;
                 eraseRope();
+                blowObject = false;
+                miner.pullObject = false;
+                miner.blowObject = false;
                                 
                 if(gold != null){
                      mine.getCounter().addScore(value);
@@ -191,16 +224,30 @@ public class Hook extends Actor
         }
     }
 
+    /**
+     * Checks if there is a object in near
+       Class object = the object to check
+       */
     public boolean isObjectInRange(Class object)
     {
         return !getObjectsInRange(25, object).isEmpty();
     }
     
+    /**
+       Define the turning point for the hook
+       */
     public boolean atTurningPoint()
     {
         return (getX() <= 50 || getX() >= 750);
     }
       
+    /**
+       Draw a Rope for the hook
+       int x1 = the first point's x coordinate.
+       int y1 = the first point's y coordinate.
+       int x2 = the second point's x coordinate.
+       int y2 = the second point's y coordinate.
+       */
     public void drawRope(int x1, int y1, int x2, int y2)
     {        
         this.line = mine.getBackground();
@@ -209,6 +256,9 @@ public class Hook extends Actor
         mine.setBackground(this.line);
     }
     
+    /**
+       Erase the drawn Rope
+       */
     public void eraseRope(){
         this.mine.setBackground("bg.png");
     }

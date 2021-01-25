@@ -3,5 +3,5 @@ comment0.target=Miner
 comment0.text=\r\n\ A\ Miner\ that\ swings\ his\ hook\ to\ collect\ valuable\ objects\r\n\ \r\n\ @AZO\ &\ @LUM\r\n\ @v.1\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Miner\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ \ Miner\ to\ pull\ objects\r\n
 numComments=2

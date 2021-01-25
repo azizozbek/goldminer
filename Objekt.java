@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Objekt extends Actor
 {
+    protected GifImage explosion = new GifImage("explosion.gif");
+    protected int gifCounter = 0;
     protected boolean useDynamite = false;
     //Avoid overlapping random other objects
     protected void addedToWorld(World world)

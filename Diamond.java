@@ -17,12 +17,16 @@ public class Diamond extends Objekt
     {
         Actor hook;
         hook = getOneIntersectingObject(Hook.class);
-        if (hook != null){
+        if (hook != null && gifCounter < 2){
             setImage("diamond_hook.png");
             GreenfootImage image = getImage();        
             image.rotate(-90);
             setImage(image);
         }
     }
-
+    
+    public void blowObject(){
+        this.setImage(this.explosion.getCurrentImage());
+        this.gifCounter++;
+    }
 }

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Mine extends World
 {
-    Counter counter = new Counter();
+    private Counter counter = new Counter();
 
     /**
      * Constructor for objects of class MyWorld.
@@ -20,6 +20,10 @@ public class Mine extends World
         * with the false parameter make the world unbounded.
         */
         super(800, 600, 1,false);
+        
+        //add Startbutton
+        Start start = new Start();
+        addObject(start, getWidth()/2, getHeight()/2);
         
         //add the miner
         Miner miner = new Miner();
@@ -53,7 +57,7 @@ public class Mine extends World
         Dynamite dynamite = new Dynamite();
         
         //create the hook
-        Hook hook = new Hook(dynamite);
+        Hook hook = new Hook(dynamite, miner);
         addObject(hook, getWidth()/2, 100);
         
        
