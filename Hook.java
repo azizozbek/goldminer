@@ -15,7 +15,7 @@ public class Hook extends Actor
     private int hookSpeed = 3;
     private boolean stopHook = false;
     private boolean catchObject = false;
-    int Ytarget = 1; 
+    private int Ytarget = 1; 
     private int value;
     private Mine mine;
     private GreenfootImage line;
@@ -23,6 +23,9 @@ public class Hook extends Actor
     private Miner miner;
     private boolean blowObject = false;
     
+    /**
+       Getinstance of Dynamite an Miner, resize the Image
+       */
     public Hook(Dynamite d, Miner m)
     {
         //make the image double big, so its anchor points is on top
@@ -36,6 +39,11 @@ public class Hook extends Actor
         dynamite = d;
     }
     
+    /**
+       Let the Hook move, until Downkey pressed,
+       Look for other Objects when the key is pressed
+       Blow the object if the up key pressed and there is a dynamite
+       */
     public void act() 
     { 
         this.mine = (Mine) getWorld();

@@ -12,15 +12,17 @@ public class Counter extends Actor
     private int score = 0;
 
     /**
-     * Act - do whatever the Counter wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Set score image
      */
     public void act() 
     {
         setImage(new GreenfootImage("Score : " + score, 24, Color.RED, Color.WHITE));
         
     }    
-     
+    /**
+     * Increase the Score
+     *@ int worth = Score to add
+    */
     public void addScore(int worth)
     {
         score = score + worth;

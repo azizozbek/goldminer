@@ -11,34 +11,43 @@ public class Dynamite extends Actor
     public static boolean addDynamite;
     private int count;
     
+    /**
+     * Resize the image
+    */
     public Dynamite(){
         GreenfootImage image = getImage();        
         image.scale(20,34);
         setImage(image);
     }
     
+    /**
+     * Look if the addDynamite is set to true
+       */
     public void act() 
     {
        if(addDynamite){
            addDynamite();
            addDynamite = false;
        }
-       
-       for (int i=0; i<10; i++)
-       {
-           Mine mine = (Mine)getWorld();
-           mine.addObject(this, 65, 40);
-       }
     }    
     
+    /**
+       Increase the dynamite count
+       */
     public void addDynamite(){
         count++; 
     }
     
+    /**
+     * Get the current dynamite
+       */
     public int getDynamite(){
         return count;
     }
     
+    /**
+     * Decrease the counter
+       */
     public void deleteDynamite(){
     
         count--;

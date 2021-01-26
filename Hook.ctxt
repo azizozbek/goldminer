@@ -3,8 +3,10 @@ comment0.target=Hook
 comment0.text=\r\n\ Hook\ that\ swings\ around\ and\ catches\ objects\ to\ bring\ to\ the\ Miner\r\n\ \r\n\ @AZO\ &\ @LUM\ \r\n\ @v.1\r\n
 comment1.params=d\ m
 comment1.target=Hook(Dynamite,\ Miner)
+comment1.text=\r\n\ \ \ \ \ \ \ Getinstance\ of\ Dynamite\ an\ Miner,\ resize\ the\ Image\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ \ \ \ \ \ \ Let\ the\ Hook\ move,\ until\ Downkey\ pressed,\r\n\ \ \ \ \ \ \ Look\ for\ other\ Objects\ when\ the\ key\ is\ pressed\r\n\ \ \ \ \ \ \ Blow\ the\ object\ if\ the\ up\ key\ pressed\ and\ there\ is\ a\ dynamite\r\n
 comment3.params=object
 comment3.target=boolean\ isObjectInRange(java.lang.Class)
 comment3.text=\r\n\ Checks\ if\ there\ is\ a\ object\ in\ near\r\n\ \ \ \ \ \ \ Class\ object\ \=\ the\ object\ to\ check\r\n

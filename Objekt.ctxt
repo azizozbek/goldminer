@@ -3,4 +3,5 @@ comment0.target=Objekt
 comment0.text=\r\n\ Organisatory\ Class\ for\ Objects\r\n\ \r\n\ @AZO\ &\ @LUM\ \r\n\ @v.1\r\n
 comment1.params=world
 comment1.target=void\ addedToWorld(greenfoot.World)
+comment1.text=\r\n\ Avoid\ overlapping\ random\ other\ objects\r\n
 numComments=2

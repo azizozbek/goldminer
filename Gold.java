@@ -9,7 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Gold extends Objekt
 {
     private int randNr = Greenfoot.getRandomNumber(50);
-    
+    /**
+     * resize the Images
+       */
     public Gold(){
         
         GreenfootImage image = getImage();        
@@ -18,6 +20,9 @@ public class Gold extends Objekt
 
     }
     
+    /**
+     * If the hook hits the object change the image
+    */
     public void act() 
     {
         Actor hook;
@@ -31,7 +36,9 @@ public class Gold extends Objekt
         }          
 
     }
-    //Change the image when its blowed (used by external class)
+    /**
+     * If dynamte used, set the image to blown
+    */
     public void blowObject(){
         this.setImage(this.explosion.getCurrentImage());
         this.gifCounter++;

@@ -3,14 +3,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Start here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @AZO
+ * @v1
  */
 public class Start extends Actor
 {
     /**
-     * Act - do whatever the Start wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * start image 
      */
     public void act() 
     {

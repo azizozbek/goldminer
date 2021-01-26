@@ -2,9 +2,9 @@
 comment0.target=Diamond
 comment0.text=\r\n\ A\ valuable\ diamond\ that\ has\ a\ high\ value\r\n\ \r\n\ @AZO\ &\ @LUM\ \r\n\ @v.1\r\n
 comment1.params=
-comment1.target=Diamond()
+comment1.target=void\ act()
+comment1.text=\r\n\ If\ the\ hook\ hits\ the\ object\ change\ the\ image\r\n
 comment2.params=
-comment2.target=void\ act()
-comment3.params=
-comment3.target=void\ blowObject()
-numComments=4
+comment2.target=void\ blowObject()
+comment2.text=\r\n\ If\ dynamte\ used,\ set\ the\ image\ to\ blown\r\n
+numComments=3

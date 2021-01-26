@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Diamond extends Objekt
 {
     private int randNr = Greenfoot.getRandomNumber(50);
-
-    public Diamond(){        
-        
-    }
+    
+    /**
+     * If the hook hits the object change the image
+       */
     public void act() 
     {
         Actor hook;
@@ -25,6 +25,9 @@ public class Diamond extends Objekt
         }
     }
     
+    /**
+     * If dynamte used, set the image to blown
+       */
     public void blowObject(){
         this.setImage(this.explosion.getCurrentImage());
         this.gifCounter++;

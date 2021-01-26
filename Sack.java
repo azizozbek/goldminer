@@ -21,6 +21,9 @@ public class Sack extends Objekt
         this.suprise = Greenfoot.getRandomNumber(suprises.length);
     }
     
+    /**
+     * If the hook hits the object change the image
+       */
     public void act() 
     {
         Actor hook;
@@ -34,7 +37,9 @@ public class Sack extends Objekt
         }
     }    
     
-    //Change the image when its blowed (used by external class
+    /**
+     * If dynamte used, set the image to blown
+       */   
     public void blowObject(){
         this.setImage(this.explosion.getCurrentImage());
         this.gifCounter++;
